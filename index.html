@@ -34,7 +34,7 @@ footer{color:var(--mu);font-size:.8rem;margin-top:18px}h2{font-size:1rem;margin:
 [hidden]{display:none}
 </style></head><body><main>
 <h1>Laporan Keuangan Kas RT 02 RW 13</h1>
-<p class="sub">Tahun 2026 · Diperbarui 31 Oktober 2026</p>
+<p class="sub">Tahun 2026 · Diperbarui 31 Oktober 2026<span id="vw" hidden> · Dilihat <b id="stats"></b> kali</span></p>
 <div class="tabs"><button class="on" data-t="k">Ringkasan Kas</button><button data-t="r">Rekap Iuran Warga</button></div>
 <div class="chips" id="ch"></div>
 <section id="k"><div class="cards" id="cd"></div>
@@ -85,4 +85,10 @@ document.querySelector('.tabs').onclick=e=>{const t=e.target.dataset.t;if(!t)ret
 all();
 </script><script data-goatcounter="https://ademiftah.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
-</script></body></html>
+<script>
+fetch('https://ademiftah.goatcounter.com/counter/TOTAL.json')
+.then(function(r){return r.json()})
+.then(function(d){if(d&&d.count){document.getElementById('stats').textContent=d.count;document.getElementById('vw').hidden=false}})
+.catch(function(){});
+</script>
+</body></html>
